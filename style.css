@@ -1,11 +1,17 @@
-* { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-body {
+* { 
+  box-sizing: border-box; 
+  font-family: 'Segoe UI', sans-serif; 
   margin: 0;
+  padding: 0;
+}
+
+body {
   height: 100vh;
   background: #f8e6f0;
   overflow: hidden;
   transition: background 2s ease;
 }
+
 .scene { position: relative; width: 100%; height: 100%; }
 
 /* Snow */
@@ -14,7 +20,8 @@ body {
   position: absolute;
   top: -20px;
   color: white;
-  font-size: 10px;
+  font-size: 1vw;
+  max-font-size: 14px;
   user-select: none;
   opacity: 0.8;
   animation: fall linear infinite;
@@ -25,12 +32,12 @@ body {
 .girl {
   position: absolute;
   bottom: 10%;
-  left: -200px;
-  width: 180px;
-  max-width: 20%;
+  left: -25%;
+  width: 18vw;
+  max-width: 180px;
   opacity: 0;
-  transform: translateY(40px);
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,.5));
+  transform: translateY(5vh);
+  filter: drop-shadow(0 2vh 3vh rgba(0,0,0,.5));
   transition: all 2s ease;
 }
 
@@ -38,43 +45,48 @@ body {
 .speech {
   position: absolute;
   top: 10%;
-  left: 10%;
+  left: 5%;
   background: rgba(255, 255, 255, 0.95);
-  padding: 14px 22px;
-  border-radius: 25px;
-  font-size: 16px;
+  padding: 2vh 2.5vw;
+  border-radius: 2rem;
+  font-size: 1rem;
   opacity: 0;
   transition: opacity 1.2s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,.2);
+  box-shadow: 0 0.5vh 2vh rgba(0,0,0,.2);
   white-space: pre-wrap;
+  max-width: 90%;
 }
 
 /* Door */
 .door-frame {
   position: absolute;
-  right: 15%;
+  right: 10%;
   bottom: 10%;
-  width: 120px;
-  height: 250px;
+  width: 12vw;
+  max-width: 120px;
+  height: 25vh;
+  max-height: 250px;
   perspective: 900px;
 }
 .door {
   width: 100%;
   height: 100%;
-  background: linear-gradient(#5a3b2b, #3b2418);
+  background: linear-gradient(#905d43, #1f183b);
   transform-origin: left;
   transition: transform 2s ease;
-  box-shadow: inset -12px 0 25px rgba(0,0,0,.4);
+  box-shadow: inset -0.8vw 0 2vw rgba(0,0,0,.4);
   border-radius: 4px;
 }
 .handle {
-  width: 12px;
-  height: 12px;
-  background: gold;
+  width: 1vw;
+  max-width: 12px;
+  height: 1vw;
+  max-height: 12px;
+  background: rgb(203, 215, 31);
   border-radius: 50%;
   position: absolute;
-  right: 15px;
-  top: 120px;
+  right: 12%;
+  top: 48%;
 }
 
 /* Envelope */
@@ -83,18 +95,20 @@ body {
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
-  width: 220px;
-  height: 140px;
+  width: 22vw;
+  max-width: 220px;
+  height: 14vw;
+  max-height: 140px;
   background: linear-gradient(#ffe6ec, #ffd1dc);
-  border-radius: 16px;
-  box-shadow: 0 25px 50px rgba(0,0,0,.3);
+  border-radius: 1rem;
+  box-shadow: 0 2vh 5vh rgba(0,0,0,.3);
   text-align: center;
   cursor: pointer;
   transition: transform 0.8s ease;
   perspective: 600px;
 }
-.envelope span { font-size: 42px; display: block; margin-top: 25px; padding: auto;}
-.envelope p { margin-top: 8px; font-weight: 600; color: #b03060; font-size: .78rem;color: #3b2418;}
+.envelope span { font-size: 4vw; max-font-size: 42px; display: block; margin-top: auto; padding: auto;}
+.envelope p { margin-top: 0.5rem; font-weight: 600; font-size: 0.8rem; color: #3b2418; }
 .envelope .fold {
   position: absolute;
   width: 100%;
@@ -107,34 +121,35 @@ body {
   transform-origin: top;
   transition: transform 0.8s ease;
 }
-.envelope:hover { box-shadow: 0 30px 60px rgba(255,192,203,.5); }
+.envelope:hover { box-shadow: 0 3vh 6vh rgba(255,192,203,.5); }
 
 /* Card */
 .card {
   position: absolute;
   inset: 0;
   margin: auto;
-  width: 480px;
-  max-width: 90%;
-  height: 360px;
+  width: 80vw;
+  max-width: 480px;
+  height: 45vh;
+  max-height: 360px;
   background: linear-gradient(145deg, #fff0f5, #ffe3ec);
-  border-radius: 30px;
-  padding: 35px;
+  border-radius: 2rem;
+  padding: 4vh 3vw;
   text-align: center;
-  box-shadow: 0 35px 70px rgba(0,0,0,.4);
+  box-shadow: 0 3.5vh 7vh rgba(0,0,0,.4);
   animation: cardIn 1.5s ease forwards, floatCard 4s ease-in-out infinite 1.5s;
   overflow: hidden;
 }
-@keyframes cardIn { from { opacity: 0; transform: scale(.7) translateY(40px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-@keyframes floatCard { 50% { transform: translateY(-8px); } }
-.card h1 { color: #b03060; font-size: 36px; }
-.card p { color: #444; line-height: 1.6; }
+.card h1 { color: #b03060; font-size: 2.5rem; }
+.card p { color: #161515; line-height: 1.6; font-size: 1rem; }
 
-/* Sparkles inside card & burst */
+/* Card sparkles */
 .sparkle {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 0.5vw;
+  max-width: 6px;
+  height: 0.5vw;
+  max-height: 6px;
   background: radial-gradient(circle, #fff, #ffd1dc);
   border-radius: 50%;
   opacity: 0;
@@ -143,18 +158,40 @@ body {
 }
 @keyframes sparkleAnim {
   0% { opacity: 0; transform: scale(0.5) translateY(0); }
-  50% { opacity: 1; transform: scale(1.2) translateY(-10px); }
+  50% { opacity: 1; transform: scale(1.2) translateY(-1vh); }
   100% { opacity: 0; transform: scale(0.5) translateY(0); }
 }
+
+@keyframes cardIn { from { opacity: 0; transform: scale(.7) translateY(4vh); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes floatCard { 50% { transform: translateY(-1vh); } }
 
 /* Hidden elements */
 .hidden { display: none; }
 
-/* Responsive adjustments */
+/* Media queries for responsiveness */
+@media screen and (max-width: 1024px){
+  .girl { width: 22vw; left: -28%; bottom: 10%; }
+  .door-frame { width: 14vw; height: 28vh; right: 8%; bottom: 10%; }
+  .speech { font-size: 0.95rem; padding: 2vh 3vw; }
+  .envelope { width: 25vw; height: 16vw; }
+  .card { width: 85vw; height: 50vh; padding: 3vh 3vw; }
+  .envelope p { margin-top:1.1 rem; color: #1d130d;padding-top: 15%;  }
+}
+
 @media screen and (max-width: 768px){
-  .girl { width: 140px; left: -150px; bottom: 8%; }
-  .door-frame { width: 100px; height: 200px; right: 10%; bottom: 8%; }
-  .speech { font-size: 14px; padding: 12px 18px; top: 8%; left: 5%; }
-  .envelope { width: 180px; height: 120px; }
-  .card { width: 90%; height: auto; padding: 25px; }
+  .girl { width: 28vw; left: -35%; bottom: 8%; }
+  .door-frame { width: 20vw; height: 25vh; right: 6%; bottom: 8%; }
+  .speech { font-size: 0.85rem; padding: 1.5vh 3vw; top: 6%; left: 4%; }
+  .envelope { width: 30vw; height: 18vw; }
+  .card { width: 90vw; height: auto; padding: 2.5vh 2vw; }
+  .envelope p { margin-top:1.1 rem; color: #1d130d; padding-top: 15%;  }
+}
+
+@media screen and (max-width: 480px){
+  .girl { width: 36vw; left: -40%; bottom: 6%; }
+  .door-frame { width: 24vw; height: 22vh; right: 5%; bottom: 6%; }
+  .speech { font-size: 0.8rem; padding: 1vh 2.5vw; top: 5%; left: 3%; }
+  .envelope { width: 36vw; height: 20vw; }
+  .card { width: 92vw; height: auto; padding: 2vh 2vw; }
+  .envelope p { margin-top:1.1 rem; color: #1d130d;padding-top: 15%;  }
 }

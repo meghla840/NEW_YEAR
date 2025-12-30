@@ -1,0 +1,160 @@
+* { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body {
+  margin: 0;
+  height: 100vh;
+  background: #f8e6f0;
+  overflow: hidden;
+  transition: background 2s ease;
+}
+.scene { position: relative; width: 100%; height: 100%; }
+
+/* Snow */
+.snow { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: white;
+  font-size: 10px;
+  user-select: none;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+@keyframes fall { to { transform: translateY(100vh); } }
+
+/* Girl */
+.girl {
+  position: absolute;
+  bottom: 10%;
+  left: -200px;
+  width: 180px;
+  max-width: 20%;
+  opacity: 0;
+  transform: translateY(40px);
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,.5));
+  transition: all 2s ease;
+}
+
+/* Speech bubble with typing effect */
+.speech {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 14px 22px;
+  border-radius: 25px;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,.2);
+  white-space: pre-wrap;
+}
+
+/* Door */
+.door-frame {
+  position: absolute;
+  right: 15%;
+  bottom: 10%;
+  width: 120px;
+  height: 250px;
+  perspective: 900px;
+}
+.door {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#5a3b2b, #3b2418);
+  transform-origin: left;
+  transition: transform 2s ease;
+  box-shadow: inset -12px 0 25px rgba(0,0,0,.4);
+  border-radius: 4px;
+}
+.handle {
+  width: 12px;
+  height: 12px;
+  background: gold;
+  border-radius: 50%;
+  position: absolute;
+  right: 15px;
+  top: 120px;
+}
+
+/* Envelope */
+.envelope {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 220px;
+  height: 140px;
+  background: linear-gradient(#ffe6ec, #ffd1dc);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0,0,0,.3);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.8s ease;
+  perspective: 600px;
+}
+.envelope span { font-size: 42px; display: block; margin-top: 25px; padding: auto;}
+.envelope p { margin-top: 8px; font-weight: 600; color: #b03060; font-size: .78rem;color: #3b2418;}
+.envelope .fold {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  background: rgba(255,255,255,0.6);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  transform-origin: top;
+  transition: transform 0.8s ease;
+}
+.envelope:hover { box-shadow: 0 30px 60px rgba(255,192,203,.5); }
+
+/* Card */
+.card {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 480px;
+  max-width: 90%;
+  height: 360px;
+  background: linear-gradient(145deg, #fff0f5, #ffe3ec);
+  border-radius: 30px;
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 35px 70px rgba(0,0,0,.4);
+  animation: cardIn 1.5s ease forwards, floatCard 4s ease-in-out infinite 1.5s;
+  overflow: hidden;
+}
+@keyframes cardIn { from { opacity: 0; transform: scale(.7) translateY(40px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes floatCard { 50% { transform: translateY(-8px); } }
+.card h1 { color: #b03060; font-size: 36px; }
+.card p { color: #444; line-height: 1.6; }
+
+/* Sparkles inside card & burst */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff, #ffd1dc);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: sparkleAnim 2s infinite;
+}
+@keyframes sparkleAnim {
+  0% { opacity: 0; transform: scale(0.5) translateY(0); }
+  50% { opacity: 1; transform: scale(1.2) translateY(-10px); }
+  100% { opacity: 0; transform: scale(0.5) translateY(0); }
+}
+
+/* Hidden elements */
+.hidden { display: none; }
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px){
+  .girl { width: 140px; left: -150px; bottom: 8%; }
+  .door-frame { width: 100px; height: 200px; right: 10%; bottom: 8%; }
+  .speech { font-size: 14px; padding: 12px 18px; top: 8%; left: 5%; }
+  .envelope { width: 180px; height: 120px; }
+  .card { width: 90%; height: auto; padding: 25px; }
+}

@@ -175,8 +175,8 @@ body {
   .speech { font-size: 0.95rem; padding: 2vh 3vw; }
   .envelope { width: 25vw; height: 16vw; }
   .card { width: 85vw; height: 55vh; padding: 3vh 3vw; }
-  .card h1{ font-size: 1rem;}
-  .card p{ font-size: .8 rem; padding-bottom: 10%;}
+  .card h1{ font-size: 1.1rem;}
+  .card p{ font-size: .78 rem; padding-bottom: 10%;}
   .envelope p { margin-top:1.1 rem; color: #1d130d;padding-top: 15%;  }
 }
 
@@ -186,8 +186,8 @@ body {
   .speech { font-size: 0.85rem; padding: 1.5vh 3vw; top: 6%; left: 4%; }
   .envelope { width: 30vw; height: 18vw; }
   .card { width: 90vw; height: auto; padding: 2.5vh 2vw; }
-  .card h1{ font-size: 1rem;}
-  .card p{ font-size: .8 rem; padding-bottom: 10%;}
+  .card h1{ font-size: 1.1rem;}
+  .card p{ font-size: .78 rem; padding-bottom: 10%;}
   .envelope p { margin-top:1.1 rem; color: #1d130d; padding-top: 15%;  }
 }
 

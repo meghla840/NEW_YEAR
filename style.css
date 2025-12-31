@@ -7,9 +7,9 @@
 
 body {
   height: 100vh;
-  background: #f8e6f0;
   overflow: hidden;
   transition: background 2s ease;
+  background: linear-gradient(to top, #1a2850 0%, #f18888 50%, #ffd1a1 100%);
 }
 
 .scene { position: relative; width: 100%; height: 100%; }
@@ -99,7 +99,7 @@ body {
   max-width: 220px;
   height: 14vw;
   max-height: 140px;
-  background: linear-gradient(#ffe6ec, #ffd1dc);
+  background: linear-gradient(#ca8f9c, #ffd1dc);
   border-radius: 1rem;
   box-shadow: 0 2vh 5vh rgba(0,0,0,.3);
   text-align: center;
@@ -138,10 +138,34 @@ body {
   text-align: center;
   box-shadow: 0 3.5vh 7vh rgba(0,0,0,.4);
   animation: cardIn 1.5s ease forwards, floatCard 4s ease-in-out infinite 1.5s;
-  overflow: hidden;
+  overflow-y: auto; /* Scrollable */
+  overflow-x: hidden;
 }
-.card h1 { color: #b03060; font-size: 2.5rem; }
-.card p { color: #161515; line-height: 1.6; font-size: 1rem; }
+
+.card h1 { 
+  color: #b03060; 
+  font-size: 2.5rem; 
+}
+
+.card p { 
+  color: #161515; 
+  line-height: 1.6; 
+  font-size: 1rem; 
+  white-space: pre-wrap;
+}
+
+/* Scrollbar styling (optional, light and subtle) */
+.card::-webkit-scrollbar {
+  width: 6px;
+}
+.card::-webkit-scrollbar-thumb {
+  background: rgba(180,30,90,0.4);
+  border-radius: 3px;
+}
+.card::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+}
 
 /* Card sparkles */
 .sparkle {
@@ -156,6 +180,20 @@ body {
   pointer-events: none;
   animation: sparkleAnim 2s infinite;
 }
+@keyframes heartFloat{
+  to{
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+
+@keyframes firework{
+  0%{ transform: scale(0); opacity:1;}
+  80%{ transform: scale(3);}
+  100%{ transform: scale(0); opacity:0;}
+}
+
 @keyframes sparkleAnim {
   0% { opacity: 0; transform: scale(0.5) translateY(0); }
   50% { opacity: 1; transform: scale(1.2) translateY(-1vh); }
@@ -181,20 +219,39 @@ body {
 }
 
 @media screen and (max-width: 768px){
-  .girl { width: 28vw; left: -35%; bottom: 8%; }
-  .door-frame { width: 20vw; height: 25vh; right: 6%; bottom: 8%; }
-  .speech { font-size: 0.85rem; padding: 1.5vh 3vw; top: 6%; left: 4%; }
+  .girl { width: 28vw; left: -42%; bottom: 8%; }
+  .door-frame { width: 20vw; height: 25vh; right: 4%; bottom: 8%; }
+  .speech { 
+    font-size: 0.85rem; padding: 1.5vh 3vw; 
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 88%;
+     }
   .envelope { width: 30vw; height: 18vw; }
   .card { width: 90vw; height: auto; padding: 2.5vh 2vw; }
   .card h1{ font-size: 1.1rem;}
   .card p{ font-size: .78 rem; padding-bottom: 10%;}
   .envelope p { margin-top:1.1 rem; color: #1d130d; padding-top: 15%;  }
+  .girl { z-index: 2; }
+  .door-frame { z-index: 1; }
+
 }
 
 @media screen and (max-width: 480px){
-  .girl { width: 36vw; left: -40%; bottom: 6%; }
-  .door-frame { width: 24vw; height: 22vh; right: 5%; bottom: 6%; }
-  .speech { font-size: 0.8rem; padding: 1vh 2.5vw; top: 5%; left: 3%; }
+  .girl { z-index: 2; }
+  .door-frame { z-index: 1; }
+
+  .girl { width: 36vw; left: -48%; bottom: 6%; }
+  .door-frame { width: 24vw; height: 22vh; right: 3%; bottom: 6%; 
+  }
+  .speech { 
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    padding: 1.2vh 4vw;}
   .envelope { width: 36vw; height: 20vw; }
   .card { width: 92vw; height: auto; padding: 2vh 2vw; }
   .card h1{ font-size: 1rem;}
